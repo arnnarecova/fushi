@@ -35,7 +35,7 @@ int main(){
                 ans += buf[idx].j;
                 m -= buf[idx].f;
             } else {
-                ans += buf[idx].j*m/buf[idx].f;
+                ans += buf[idx].j*m/buf[idx].f;//用性价比来求，可以写成m*buf[idx].s
                 m = 0;
             }
             idx++;
