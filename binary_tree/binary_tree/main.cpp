@@ -216,7 +216,20 @@
 //}
 
 
-
+//#include <stdio.h>
+//#include <string.h>
+//int main () {
+//    char a[10] = "1234";
+//    char b = 'A';
+//    for (int i=0; i<4; i++) {
+//        printf("%c\n", a[i]);
+//        printf("%d\n", b);
+//    }
+////    int c;
+////    for (c=0; c<=255; c++) {
+////        printf("ASCII:%d\tHEX:%x\tCHAR:%c\n", c, c, c);
+////    }
+//}
 
 
 
