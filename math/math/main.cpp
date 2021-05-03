@@ -101,26 +101,46 @@
 //}
 
 //最大公约数
-#include <stdio.h>
-//int gcd(int a, int b){//递归版本
-//    if (b == 0) return a;
-//    else return gcd(b, a%b);
+//#include <stdio.h>
+////int gcd(int a, int b){//递归版本
+////    if (b == 0) return a;
+////    else return gcd(b, a%b);
+////}
+//int gcd(int a, int b) {//非递归版本
+//    while (b != 0) {
+//        int t = a % b;
+//        a = b;
+//        b = t;
+//    }
+//    return a;
+//
 //}
-int gcd(int a, int b) {//非递归版本
-    while (b != 0) {
-        int t = a % b;
-        a = b;
-        b = t;
-    }
-    return a;
+//int main(){
+//    int a, b;
+//    while (scanf("%d%d", &a, &b) != EOF) {
+//        printf("%d\n", gcd(a, b));
+//    }
+//}
 
+//最小公倍数
+#include <stdio.h>
+int gcd(int a, int b){//求最小公约数
+    return b == 0 ? a : gcd(b, a % b);
 }
-int main(){
+int main () {
     int a, b;
     while (scanf("%d%d", &a, &b) != EOF) {
-        printf("%d\n", gcd(a, b));
+        printf("%d\n", a * b / gcd(a, b));
     }
 }
+
+
+
+
+
+
+
+
 
 
 
