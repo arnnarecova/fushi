@@ -122,18 +122,40 @@
 //    }
 //}
 
-//最小公倍数
+////最小公倍数
+//#include <stdio.h>
+//int gcd(int a, int b){//求最小公约数
+//    return b == 0 ? a : gcd(b, a % b);
+//}
+//int main () {
+//    int a, b;
+//    while (scanf("%d%d", &a, &b) != EOF) {
+//        printf("%d\n", a * b / gcd(a, b));
+//    }
+//}
+
+//素数筛法
+
+//素数判定
 #include <stdio.h>
-int gcd(int a, int b){//求最小公约数
-    return b == 0 ? a : gcd(b, a % b);
+#include <math.h>
+bool judge(int x){
+    if (x <= 1) return false;
+    int bound = sqrt(x) + 1;
+    printf("%d", bound);
+    for (int i = 2; i <= bound; i++) {
+        if (x % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
-int main () {
-    int a, b;
-    while (scanf("%d%d", &a, &b) != EOF) {
-        printf("%d\n", a * b / gcd(a, b));
+int main (){
+    int x;
+    while (scanf("%d", &x) != EOF) {
+        puts(judge(x) ? "YES" : "NO");
     }
 }
-
 
 
 
