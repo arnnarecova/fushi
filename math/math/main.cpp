@@ -136,27 +136,30 @@
 
 //素数筛法
 
-//素数判定
-#include <stdio.h>
-#include <math.h>
-bool judge(int x){
-    if (x <= 1) return false;
-    int bound = sqrt(x) + 1;
-    printf("%d", bound);
-    for (int i = 2; i <= bound; i++) {
-        if (x % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-int main (){
-    int x;
-    while (scanf("%d", &x) != EOF) {
-        puts(judge(x) ? "YES" : "NO");
-    }
-}
+////素数判定
+//#include <stdio.h>
+//#include <math.h>
+//bool judge(int x){
+//    if (x <= 1) return false;
+//    int bound = sqrt(x) + 1;
+//    printf("%d", bound);
+//    for (int i = 2; i <= bound; i++) {
+//        if (x % i == 0) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
+//int main (){
+//    int x;
+//    while (scanf("%d", &x) != EOF) {
+//        puts(judge(x) ? "YES" : "NO");
+//    }
+//}
 
+//素数筛法
+
+刘文西is zhu ren of xiaohu wangle 
 
 
 
