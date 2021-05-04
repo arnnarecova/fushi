@@ -157,45 +157,119 @@
 //    }
 //}
 
-//素数筛法
-//刘文栖is zhu ren of xiaohu 王乐
+////素数筛法
+////刘文栖is zhu ren of xiaohu 王乐
+//#include <stdio.h>
+//int prime[3000];
+//int primeSize;
+//bool mark[10001];
+//void init(){
+//    for (int i=1; i<=10000; i++) {
+//        mark[i] = false;
+//    }
+//    primeSize = 0;
+//    for (int i=2; i<=10000; i++) {
+//        if (mark[i] == true) continue;
+//        prime[primeSize++] = i;
+//        for (int j = i*i; j<=10000; j+=i) {
+//            mark[j] = true;
+//        }
+//    }
+//}
+//int main (){
+//    init();
+//    int n;
+//    while (scanf("%d", &n) != EOF) {
+//        bool isOutput = false;
+//        for (int i=0; i<primeSize; i++) {
+//            if (prime[i] < n && prime[i] % 10 == 1) {
+//                if (isOutput == false) {
+//                    isOutput = true;
+//                    printf("%d", prime[i]);
+//                }
+//                else printf(" %d", prime[i]);
+//            }
+//        }
+//        if (isOutput == false) {
+//            printf("-1\n");
+//        }
+//        else printf("\n");
+//    }
+//}
+
+//分解素因数
+
+//质因数的个数
 #include <stdio.h>
-int prime[3000];
+bool mark[100001];
+int prime[100001];
 int primeSize;
-bool mark[10001];
 void init(){
-    for (int i=1; i<=10000; i++) {
-        mark[i] = false;
-    }
     primeSize = 0;
-    for (int i=2; i<=10000; i++) {
+    for (int i=2; i<100000; i++) {
         if (mark[i] == true) continue;
         prime[primeSize++] = i;
-        for (int j = i*i; j<=10000; j+=i) {
+        if (i >= 1000) continue;
+        for (int j = i*i; j <= 100000; j+=i) {
             mark[j] = true;
         }
     }
 }
-int main (){
+int main () {
     init();
     int n;
     while (scanf("%d", &n) != EOF) {
-        bool isOutput = false;
-        for (int i=0; i<primeSize; i++) {
-            if (prime[i] < n && prime[i] % 10 == 1) {
-                if (isOutput == false) {
-                    isOutput = true;
-                    printf("%d", prime[i]);
+        int ansPrime[30];
+        int ansSize = 0;
+        int ansNum[30];
+        for (int i = 0; i < primeSize; i++) {
+            if (n % prime[i] == 0) {
+                ansPrime[ansSize] = prime[i];
+                ansNum[ansSize] = 0;
+                while (n % prime[i] == 0) {
+                    ansNum[ansSize]++;
+                    n /= prime[i];
                 }
-                else printf(" %d", prime[i]);
+                ansSize++;
+                if (n == 1) break;
             }
         }
-        if (isOutput == false) {
-            printf("-1\n");
+        if (n != 1) {
+            ansPrime[ansSize] = n;
+            ansNum[ansSize++] = 1;
         }
-        else printf("\n");
+        int ans = 0;
+        for (int i = 0; i < ansSize; i++) {
+            ans += ansNum[i];
+        }
+        printf("%d\n", ans);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
